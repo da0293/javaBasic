@@ -3,9 +3,10 @@ package part2.ex1.성적입력부분나누기;
 import java.util.Scanner;
 
 public class StructuredProgram {
+
 	static int x; // 전역변수가 되려면 static 붙이기  
-	static int[] kors = new int[3];
 	public static void main(String[] args) {
+		int[] korList = new int[3];
 		
 		int menu; 
 		boolean keepLoop = true;
@@ -15,10 +16,10 @@ public class StructuredProgram {
 			switch(menu)
 			{
 			case 1:
-				성적입력();
+				성적입력(korList); // korList 주소값을 보냄
 				break;
 			case 2:
-				성적출력();
+				성적출력(korList);
 				break;
 			case 3:
 				System.out.println("Bye~~");
@@ -42,8 +43,10 @@ public class StructuredProgram {
 		int menu = scan.nextInt();
 		return menu;
 	}
-	static void 성적입력() {
+	static void 성적입력(int[] kors) { 	
+		// 매개변수는 값이 달라졌다고 변하는게 아니라 변수명에 따라 달라짐, 지역안에만 씀으로써 함수 고립화
 		Scanner scan = new Scanner(System.in);
+		int kor;
 		System.out.println("┌──────────────────┐");
 		System.out.println("│     성적 입력            │");
 		System.out.println("└──────────────────┘");
@@ -54,18 +57,19 @@ public class StructuredProgram {
 			do 
 			{
 				System.out.printf("국어%d : ", i+1);
-				kors[i] = scan.nextInt();
+				kor = scan.nextInt();
 				
-				if(kors[i] < 0 || 100 < kors[i])
+				if(kor < 0 || 100 < kors[i])
 				{
 					System.out.println("국어성적은 0~100까지의 범위만 입력이 가능합니다.");
 				}
-			}while(kors[i]<0 || 100 < kors[i]);
+			}while(kor<0 || 100 < kor);
+			kors[i] = kor;
 		}
 		
 		System.out.println("────────────────────────");
 	}
-	static void 성적출력() {
+	static void 성적출력(int[] kors) {
 		int total = 0;
 		float avg;
 		for(int i = 0; i < 3; i++)
