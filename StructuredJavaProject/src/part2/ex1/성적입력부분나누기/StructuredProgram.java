@@ -12,14 +12,14 @@ public class StructuredProgram {
 		boolean keepLoop = true;
 		while(keepLoop)
 		{
-			menu=메뉴입력();
+			menu=inputMenu();
 			switch(menu)
 			{
 			case 1:
-				성적입력(korList); // korList 주소값을 보냄
+				inputKors(korList); // korList 주소값을 보냄
 				break;
 			case 2:
-				성적출력(korList);
+				outputKors(korList);
 				break;
 			case 3:
 				System.out.println("Bye~~");
@@ -31,7 +31,7 @@ public class StructuredProgram {
 		}
 
 	}
-	static int 메뉴입력() {
+	static int inputMenu() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("┌──────────────────┐");
 		System.out.println("│     메인 메뉴            │");
@@ -43,7 +43,7 @@ public class StructuredProgram {
 		int menu = scan.nextInt();
 		return menu;
 	}
-	static void 성적입력(int[] kors) { 	
+	static void inputKors(int[] kors) { 	
 		// 매개변수는 값이 달라졌다고 변하는게 아니라 변수명에 따라 달라짐, 지역안에만 씀으로써 함수 고립화
 		Scanner scan = new Scanner(System.in);
 		int kor;
@@ -59,7 +59,7 @@ public class StructuredProgram {
 				System.out.printf("국어%d : ", i+1);
 				kor = scan.nextInt();
 				
-				if(kor < 0 || 100 < kors[i])
+				if(kor < 0 || 100 < kor)
 				{
 					System.out.println("국어성적은 0~100까지의 범위만 입력이 가능합니다.");
 				}
@@ -69,7 +69,7 @@ public class StructuredProgram {
 		
 		System.out.println("────────────────────────");
 	}
-	static void 성적출력(int[] kors) {
+	static void outputKors(int[] kors) {
 		int total = 0;
 		float avg;
 		for(int i = 0; i < 3; i++)
