@@ -5,11 +5,7 @@ import java.util.Scanner;
 public class Program {
 	public static void main(String[] args) {
 		Exam[] exams = new Exam[3];
-//		exams[0] = new Exam();
-//	
-//		exams[0].kor = 30;
-//		System.out.printf("kor%d", exams[0].kor);
-		
+		int current = 0; 
 		int menu; 
 		boolean keepLoop = true;
 		
@@ -19,10 +15,10 @@ public class Program {
 			switch(menu)
 			{
 			case 1:
-				inputList(exams); 
+				inputList(exams, current); 
 				break;
 			case 2:
-				printList(exams);
+				printList(exams, current);
 				break;
 			case 3:
 				System.out.println("Bye~~");
@@ -34,13 +30,13 @@ public class Program {
 		}
 		
 	}
-	private static void printList(Exam[] exams) {
+	private static void printList(Exam[] exams, int size ) {
 		System.out.println("┌──────────────────┐");
 		System.out.println("│     성적 출력            │");
 		System.out.println("└──────────────────┘");
 		System.out.println();
 	
-		for ( int i=0; i<3; i++) { // exams.length는 exam의 방의 개수를 말하기 때문에 안됨 그 방의 데이터가 몇개인지를 써야함 i<3인 이유다. 
+		for ( int i=0; i<size; i++) { // exams.length는 exam의 방의 개수를 말하기 때문에 안됨 그 방의 데이터가 몇개인지를 써야함 i<3인 이유다. 
 			Exam exam = exams[i]; // 이건 선언이 아닌 연산
 			// for문 안에 변수를 선언하면 비효율적이다 ? -> for문 안이든 for문 밖이든 준비는 한번이다. 고로 상관없다.
 			int kor = exam.kor;
@@ -59,14 +55,13 @@ public class Program {
 
 		}	
 	}
-	private static void inputList(Exam[] exams) {
+	private static void inputList(Exam[] exams, int current) {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("┌──────────────────┐");
 		System.out.println("│     성적 입력            │");
 		System.out.println("└──────────────────┘");
 		System.out.println();
 		
-		for (int i = 0; i<3; i++) {
 		
 		int kor, eng, math; // 입력받을 때 임시변수에 받음
 		do 
@@ -109,9 +104,8 @@ public class Program {
 		exam.math=math;
 		
 		// exam 객체참조배열에 대입 
-		exams[i] = exam; 
-		
-		}
+		exams[current] = exam; 
+		current++;
 	}
 	static int inputMenu() {
 		Scanner scan = new Scanner(System.in);
