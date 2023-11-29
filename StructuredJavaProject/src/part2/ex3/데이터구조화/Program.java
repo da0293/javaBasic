@@ -1,0 +1,128 @@
+package part2.ex3.데이터구조화;
+
+import java.util.Scanner;
+
+public class Program {
+	public static void main(String[] args) {
+		Exam[] exams = new Exam[3];
+//		exams[0] = new Exam();
+//	
+//		exams[0].kor = 30;
+//		System.out.printf("kor%d", exams[0].kor);
+		
+		int menu; 
+		boolean keepLoop = true;
+		
+		while(keepLoop)
+		{
+			menu=inputMenu();
+			switch(menu)
+			{
+			case 1:
+				inputList(exams); 
+				break;
+			case 2:
+				printList(exams);
+				break;
+			case 3:
+				System.out.println("Bye~~");
+				keepLoop = false;
+				break;
+			default:
+				System.out.println("잘못된 값을 입력하셨습니다. 메뉴는 1~3까지입니다.");
+			}
+		}
+		
+	}
+	private static void printList(Exam[] exams) {
+		System.out.println("┌──────────────────┐");
+		System.out.println("│     성적 출력            │");
+		System.out.println("└──────────────────┘");
+		System.out.println();
+	
+		for ( int i=0; i<3; i++) { // exams.length는 exam의 방의 개수를 말하기 때문에 안됨 그 방의 데이터가 몇개인지를 써야함 i<3인 이유다. 
+			Exam exam = exams[i]; // 이건 선언이 아닌 연산
+			// for문 안에 변수를 선언하면 비효율적이다 ? -> for문 안이든 for문 밖이든 준비는 한번이다. 고로 상관없다.
+			int kor = exam.kor;
+			int eng = exam.eng;
+			int math = exam.math;
+			
+			int total = kor + eng + math;
+			float avg = total/3.0f; 
+			System.out.println("국어 : " + kor );
+			System.out.println("수학 : " + math );
+			System.out.println("영어 : " + eng );
+			
+			System.out.printf("총점 : %3d\n", total);
+			System.out.printf("평균 : %6.2f\n", avg);
+			System.out.println("────────────────────────");
+
+		}	
+	}
+	private static void inputList(Exam[] exams) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("┌──────────────────┐");
+		System.out.println("│     성적 입력            │");
+		System.out.println("└──────────────────┘");
+		System.out.println();
+		
+		for (int i = 0; i<3; i++) {
+		
+		int kor, eng, math; // 입력받을 때 임시변수에 받음
+		do 
+		{
+			System.out.printf("국어 : ");
+			kor = scan.nextInt();
+			
+			if(kor < 0 || 100 < kor)
+			{
+				System.out.println("국어성적은 0~100까지의 범위만 입력이 가능합니다.");
+			}
+			
+		}while(kor<0 || 100 < kor);
+		do 
+		{
+			System.out.printf("영어 : ");
+			eng = scan.nextInt();
+			
+			if(eng < 0 || 100 < eng)
+			{
+				System.out.println("영어성적은 0~100까지의 범위만 입력이 가능합니다.");
+			}
+			
+		}while(eng<0 || 100 < eng);
+		do 
+		{
+			System.out.printf("수학 : ");
+			math = scan.nextInt();
+			
+			if(math < 0 || 100 < math)
+			{
+				System.out.println("수학성적은 0~100까지의 범위만 입력이 가능합니다.");
+			}
+			
+		}while(math<0 || 100 < math);
+		Exam exam = new Exam(); // 실제 국어, 수학, 영어 방 만들어줌
+		// 임수변수에 받은 값을 대입  
+		exam.kor=kor;
+		exam.eng=eng;
+		exam.math=math;
+		
+		// exam 객체참조배열에 대입 
+		exams[i] = exam; 
+		
+		}
+	}
+	static int inputMenu() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("┌──────────────────┐");
+		System.out.println("│     메인 메뉴            │");
+		System.out.println("└──────────────────┘");
+		System.out.println("\t1. 성적입력 ");
+		System.out.println("\t2. 성적출력 ");
+		System.out.println("\t3. 종료 ");
+		System.out.println("\t선택> ");
+		int menu = scan.nextInt();
+		return menu;
+	}
+}
