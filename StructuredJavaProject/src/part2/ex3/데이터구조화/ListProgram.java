@@ -33,12 +33,36 @@ public class ListProgram {
 		
 	}
 	private static void printList(ExamList list ) {
+		// 오버로드 함수는 공통의 기능일 경우 집중화를 하자! ( 아래를 위로 변경 )
+		printList(list, list.current);
+		/*
+		 * System.out.println("┌──────────────────┐");
+		 * System.out.println("│     성적 출력            │");
+		 * System.out.println("└──────────────────┘"); System.out.println();
+		 * 
+		 * int size = list.current; Exam[] exams = list.exams;
+		 * 
+		 * for ( int i=0; i<size; i++) { // exams.length는 exam의 방의 개수를 말하기 때문에 안됨 그 방의
+		 * 데이터가 몇개인지를 써야함 i<3인 이유다. Exam exam = exams[i]; // 이건 선언이 아닌 연산 // for문 안에 변수를
+		 * 선언하면 비효율적이다 ? -> for문 안이든 for문 밖이든 준비는 한번이다. 고로 상관없다. int kor = exam.kor; int
+		 * eng = exam.eng; int math = exam.math;
+		 * 
+		 * int total = kor + eng + math; float avg = total/3.0f;
+		 * System.out.println("국어 : " + kor ); System.out.println("수학 : " + math );
+		 * System.out.println("영어 : " + eng );
+		 * 
+		 * System.out.printf("총점 : %3d\n", total); System.out.printf("평균 : %6.2f\n",
+		 * avg); System.out.println("────────────────────────");
+		 * 
+		 * }
+		 */	
+	}
+	private static void printList(ExamList list, int size ) {
 		System.out.println("┌──────────────────┐");
 		System.out.println("│     성적 출력            │");
 		System.out.println("└──────────────────┘");
 		System.out.println();
 		
-		int size = list.current;
 		Exam[] exams = list.exams;
 		
 		for ( int i=0; i<size; i++) { // exams.length는 exam의 방의 개수를 말하기 때문에 안됨 그 방의 데이터가 몇개인지를 써야함 i<3인 이유다. 
