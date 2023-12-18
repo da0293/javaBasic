@@ -6,7 +6,6 @@ public class Program {
 	public static void main(String[] args) {
 		ExamList list = new ExamList();
 		//초기화
-		list.init(); 
 		int menu; 
 		boolean keepLoop = true;
 		
