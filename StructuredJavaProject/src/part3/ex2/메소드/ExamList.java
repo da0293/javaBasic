@@ -3,13 +3,13 @@ package part3.ex2.메소드;
 import java.util.Scanner;
 
 public class ExamList {
-	Exam[] exams;
-	int current;
+	private Exam[] exams;
+	private int current;
 	
-	void printList() {
+	public void printList() {
 		printList(current);
 	}
-	void printList(int size) {
+	public void printList(int size) {
 		System.out.println("┌──────────────────┐");
 		System.out.println("│     성적 출력            │");
 		System.out.println("└──────────────────┘");
@@ -36,7 +36,7 @@ public class ExamList {
 		}	
 	}
 	
-	void inputList() {
+	public void inputList() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("┌──────────────────┐");
 		System.out.println("│     성적 입력            │");
@@ -97,7 +97,7 @@ public class ExamList {
 		current++;
 	}
 	
-	void init() {
+	public void init() {
 		exams = new Exam[3]; 
 		current=0;
 	}
