@@ -80,17 +80,18 @@ public class InventoryProgram {
 			// 3.inventory.products가 새로 만든 temp배열을 참조
 			inventory.products = temp; 
 		}
+//		products[size]=product;
+//		size++; 
 		products[size]=product;
-		size++; 
+		inventory.current++;
 	}
 	private static void displayInventory(Inventory inventory) {
 		System.out.println("상품 출력");
 		int size=inventory.current; 
-		System.out.println(inventory.products[0].name);
+		System.out.println("size : " + inventory.current);
 		for( int i=0; i<size; i++) {
 			Product product = inventory.products[i]; 
 			String name=product.name;
-			System.out.println("name : " + name);
 			int price=product.price;
 			int quantity=product.quantity;
 			System.out.println( "상품 이름 : " + name);
