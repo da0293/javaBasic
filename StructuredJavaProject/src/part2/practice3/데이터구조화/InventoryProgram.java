@@ -18,7 +18,10 @@ public class InventoryProgram {
 				addInventory(inventory);
 				break; 
 			case 2 :
+				// 기본 함수
 				displayInventory(inventory);
+				// overload 함수
+				displayInventory(inventory,2);
 				break;
 			case 3 : 
 				System.out.println("종료");
@@ -80,15 +83,18 @@ public class InventoryProgram {
 			// 3.inventory.products가 새로 만든 temp배열을 참조
 			inventory.products = temp; 
 		}
-//		products[size]=product;
-//		size++; 
 		products[size]=product;
 		inventory.current++;
 	}
 	private static void displayInventory(Inventory inventory) {
+		// 집중화 코드 
+		displayInventory(inventory, inventory.current);
+	}
+	
+	// overload
+	// 넘겨받은 size값만큼 출력
+	private static void displayInventory(Inventory inventory, int size) {
 		System.out.println("상품 출력");
-		int size=inventory.current; 
-		System.out.println("size : " + inventory.current);
 		for( int i=0; i<size; i++) {
 			Product product = inventory.products[i]; 
 			String name=product.name;
