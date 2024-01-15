@@ -5,6 +5,14 @@ import java.util.Scanner;
 public class ExamList {
 	private Exam[] exams;
 	private int current;
+	public ExamList() {
+		this(3); 
+	}
+	
+	public ExamList(int size) {
+		exams = new Exam[size]; 
+		current=0;
+	}
 	
 	public void printList() {
 		printList(current);
@@ -14,17 +22,15 @@ public class ExamList {
 		System.out.println("│     성적 출력            │");
 		System.out.println("└──────────────────┘");
 		System.out.println();
-		
 		Exam[] exams = this.exams;
-		
 		for ( int i=0; i<size; i++) {
 			Exam exam = exams[i];
 			int kor = exam.kor;
 			int eng = exam.eng;
 			int math = exam.math;
-			
 			int total = kor + eng + math;
 			float avg = total/3.0f; 
+			
 			System.out.println("국어 : " + kor );
 			System.out.println("수학 : " + math );
 			System.out.println("영어 : " + eng );
@@ -75,7 +81,6 @@ public class ExamList {
 			{
 				System.out.println("수학성적은 0~100까지의 범위만 입력이 가능합니다.");
 			}
-			
 		}while(math<0 || 100 < math);
 		Exam exam = new Exam(); 
 		exam.kor=kor;
@@ -83,22 +88,20 @@ public class ExamList {
 		exam.math=math;
 		
 		Exam[] exams =  this.exams;
-		int size = this.current; 
-		
+		int size = this.current;		
 		if(exams.length == size) {
+			System.out.println("실행");
 			Exam[] temp = new Exam[size + 5];
-			
 			for ( int i = 0; i< size; i++ ) {
 				temp [i] = exams[i]; 
 			}
+			// temp배열을 exams에 할당 그러나 지역변수이므로 함수 종료시 사라진다. 
 			exams = temp; 
+			// 여기서 현재 객체의 exams를 새로운 배열로 갱신
+			this.exams = exams;
 		}
-		exams[current] = exam; 
+		System.out.println( "exams의길이" + exams.length);
+		exams[size] = exam; 
 		current++;
-	}
-	
-	public ExamList() {
-		exams = new Exam[3]; 
-		current=0;
 	}
 }

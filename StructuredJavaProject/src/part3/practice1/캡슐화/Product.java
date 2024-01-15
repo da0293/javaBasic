@@ -1,7 +1,7 @@
 package part3.practice1.캡슐화;
 
 public class Product {
-	String name; 
+	String name;
 	int price; 
-	int quantity; 
+	int quantity;
 }

@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Program {
 	public static void main(String[] args) {
 		ExamList list = new ExamList();
-		//초기화
 		int menu; 
 		boolean keepLoop = true;
 		
@@ -30,7 +29,6 @@ public class Program {
 				System.out.println("잘못된 값을 입력하셨습니다. 메뉴는 1~3까지입니다.");
 			}
 		}
-		
 	}
 
 	static int inputMenu() {
