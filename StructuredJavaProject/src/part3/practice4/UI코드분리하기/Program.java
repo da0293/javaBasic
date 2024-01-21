@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Program {
 	public static void main(String[] args) {
-		Inventory inventory = new Inventory(); 
+		InventoryConsole inventory = new InventoryConsole(); 
 
 		int menu; 
 		boolean keepLoop=true;
@@ -14,10 +14,10 @@ public class Program {
 			switch(menu) 
 			{
 			case 1:
-				inventory.addInventory();
+				inventory.inputInventory();
 				break; 
 			case 2 :
-				inventory.displayInventory();
+				inventory.outputInventory();
 				break;
 			case 3 : 
 				System.out.println("종료");
