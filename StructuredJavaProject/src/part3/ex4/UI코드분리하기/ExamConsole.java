@@ -3,8 +3,12 @@ package part3.ex4.UI코드분리하기;
 import java.util.Scanner;
 
 public class ExamConsole {
-	
-	private ExamList list = new ExamList();
+	// Composition Has A 일체형
+	private ExamList list;
+
+	public ExamConsole() {
+		list = new ExamList();
+	}
 	
 	public void inputList() {
 		Scanner scan = new Scanner(System.in);
@@ -46,7 +50,6 @@ public class ExamConsole {
 				System.out.println("수학성적은 0~100까지의 범위만 입력이 가능합니다.");
 			}
 		}while(math<0 || 100 < math);
-		// 입력을 받은 데이터로 캡슐을 만듬 
 		Exam exam = new Exam(kor,eng, math); 
 		//목록에 추가하는 함수
 		list.add(exam);

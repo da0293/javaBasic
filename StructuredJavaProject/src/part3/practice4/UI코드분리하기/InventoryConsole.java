@@ -43,16 +43,17 @@ public class InventoryConsole {
 	// 재고목록 필요범위까지만 출력
 	public void outputInventory(int size) {
 		System.out.println("상품 출력");
-		
 		for( int i=0; i<size; i++) {
 			// 재고목록에서 상품을 꺼내는 메서드 get()
 			Product product = inventory.get(i);
 			String name = product.getName(); 
 			int price = product.getPrice();
 			int quantity = product.getQuantity();
+			int total = product.calculateTotal(); // 상품별 총 가격 계산
 			System.out.println( "상품 이름 : " + name);
 			System.out.println( "상품 가격 : " + price);
 			System.out.println( "상품 수량 : " + quantity);
+			System.out.println( "상품별 총 가격 : " + total);
 		}		
 	}
 }
