@@ -3,6 +3,15 @@ import part3.practice4.UI코드분리하기.Product;
 public class saleProduct extends Product{
 	private double discountRate;
 	
+	public saleProduct() {
+		this("Undefined", 0, 0, 0);
+	}
+	
+	public saleProduct(String name, int price, int quantity, double discountRate) {
+		super(name, price, quantity);
+		this.discountRate = discountRate; 
+	}
+	
 	public double getDiscountRate() {
 		// 퍼센트로 반환
 		return discountRate * 100; 
