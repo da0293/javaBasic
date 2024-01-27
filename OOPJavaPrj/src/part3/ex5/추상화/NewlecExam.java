@@ -26,5 +26,4 @@ public class NewlecExam extends Exam {
 	public float avg() {
 		return total()/4.0f;
 	}
-
 }
