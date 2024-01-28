@@ -14,10 +14,10 @@ public class Program {
 			switch(menu)
 			{
 			case 1:
-				list.inputList();
+				list.input();
 				break;
 			case 2:
-				list.printList();
+				list.print();
 				break;
 			case 3:
 				System.out.println("Bye~~");

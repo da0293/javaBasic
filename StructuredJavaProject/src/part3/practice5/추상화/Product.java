@@ -36,4 +36,13 @@ public abstract class Product {
 	public int calculateTotal() {
 		return price * quantity;
 	}
+	
+	public int applyDiscountedTotal(double discountRate) {
+		int discountedPrice = (int)(calculateTotal() * (1-discountRate/100));
+		return discountedPrice; 
+	}
+	
+	public int applyDiscountedForOne(double discountRate) {
+		return (int)(price * (1 - discountRate / 100));
+    }
 }
