@@ -15,7 +15,7 @@ public class Program {
 		// System.out.println(className); 
 		scan.close();
 		fis.close();
-		
+		//
 		// 문자열을 이용해 클래스 정보 얻기 
 		Class clazz = Class.forName(className);
 		A a = new A();
