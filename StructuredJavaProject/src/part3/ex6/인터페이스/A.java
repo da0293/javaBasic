@@ -8,7 +8,7 @@ public class A {
 	}
 	public A() {
 		// B 생성 코드
-		//b=new B();
+		//b=new B();;
 	}
 	public void print() {
 		int total = x.total();
