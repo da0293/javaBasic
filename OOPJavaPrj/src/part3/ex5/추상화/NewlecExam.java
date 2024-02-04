@@ -18,6 +18,7 @@ public class NewlecExam extends Exam {
 	}
 	@Override
 	public int total() {
+		//int total = getkor() + getEng() + getMath() + com; 
 		int total = onTotal() + com;
 		return total;
 	}
