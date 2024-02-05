@@ -33,7 +33,8 @@ public abstract class Product {
 		this.quantity = quantity;
 	}
 
-	public int calculateTotal() {
+	public abstract int calculateTotal();
+	protected int onTotal() {
 		return price * quantity;
 	}
 	

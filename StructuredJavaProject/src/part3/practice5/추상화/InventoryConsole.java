@@ -2,7 +2,7 @@ package part3.practice5.추상화;
 
 import java.util.Scanner;
 
-public class InventoryConsole {
+public abstract class InventoryConsole {
 	Inventory inventory = new Inventory();
 	
 	public void inputInventory() {
@@ -28,13 +28,21 @@ public class InventoryConsole {
 				System.out.println("수량은 0보다 커야합니다.");
 			}
 		}while(quantity<0);
-		
-		Product product= new Product(name, price, quantity); 
+		onInput();
+		//Product product= new Product(name, price, quantity); 
+		Product product = makeProduct();
+		product.setName(name);
+		product.setPrice(price);
+		product.setQuantity(quantity);
 		// 더하는 메서드 
 		inventory.add(product);
 		
 	}
 	
+	protected abstract void onInput();
+
+	protected abstract Product makeProduct();
+
 	// 재고목록 총 출력 
 	public void outputInventory() {
 		this.outputInventory(inventory.size());

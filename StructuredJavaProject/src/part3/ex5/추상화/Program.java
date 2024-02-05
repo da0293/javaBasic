@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Program {
 	public static void main(String[] args) {
-		ExamConsole list = new ExamConsole();
+		ExamConsole list = new MyExamConsole();
 		int menu; 
 		boolean keepLoop = true;
 		

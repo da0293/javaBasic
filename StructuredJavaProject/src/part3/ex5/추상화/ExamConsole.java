@@ -50,19 +50,25 @@ public abstract class ExamConsole {
 				System.out.println("수학성적은 0~100까지의 범위만 입력이 가능합니다.");
 			}
 		}while(math<0 || 100 < math);
+		//onInput(); 
 		//Exam exam = new Exam(kor,eng, math); 
 		// 추상메서드를 통해 NewlecExam이던, YBMExam이던 그에 맞게 객체 생성 가능  
+		// makeExam()을 이용해 exam을 다른 객체로 생성이 가능해진다.
 		Exam exam = makeExam();
 		// 과거엔 생성자를 통해 셋팅했으나 지금은 직접 셋팅할 수 밖에 없다.
 		// 무조건 국어, 영어, 수학은 공통적으로 셋팅되므로 세개 다 setter이용해 값 셋팅
+		// 기본 객체 셋팅
 		exam.setKor(kor); 
 		exam.setEng(eng);
 		exam.setMath(math);
+		// 추가과목 입력
+		onInput(exam); 
 		//목록에 추가하는 함수
 		list.add(exam);
 		
 	}
-	 
+
+
 	// 자식이 Override할 수 있고 외부에 노출되지 않도록 protected로 지정
 	// 추상메서드는 오로지 추상클래스만 가질 수 있다. 
 	protected abstract Exam makeExam();
@@ -91,11 +97,14 @@ public abstract class ExamConsole {
 			System.out.println("국어 : " + kor );
 			System.out.println("수학 : " + math );
 			System.out.println("영어 : " + eng );
-			
+			onPrint(exam); 
 			System.out.printf("총점 : %3d\n", total);
 			System.out.printf("평균 : %6.2f\n", avg);
 			System.out.println("────────────────────────");
 
 		}	
 	}
+	 
+	protected abstract void onInput(Exam exam);
+	protected abstract void onPrint(Exam exam);
 }
