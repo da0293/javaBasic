@@ -6,4 +6,10 @@ public class FurnitureConsole extends InventoryConsole {
 		return new Furniture();
 	}
 
+	@Override
+	protected void onInput() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
