@@ -7,14 +7,21 @@ public class Program {
 		GList<Integer> list = new GList<>();
 		list.add(3);
 		list.add(5);
-		int size = list.size();
-		System.out.println("size : " + size);
-		list.clear();
-		size = list.size();
-		System.out.println("size : " + size);
+		list.add(6);
 		list.add(7);
-		int num = list.get(0); 
-		System.out.println("num : " + num);
+		
+		list.add(3);
+		list.add(5);
+		list.add(6);
+		list.add(7);
+		
+		list.add(3);
+		list.add(5);
+		list.add(6);
+		list.add(7);
+		for(int i=0; i<list.size(); i++) {
+			System.out.print(list.get(i)+ " ");
+		}
 		//num = (Integer)list.get(1); 
 	}
 }
